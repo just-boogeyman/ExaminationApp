@@ -9,21 +9,33 @@ import UIKit
 
 class CharacterDataManager {
 	
-	private var characters: [Characters] = []
+	private var characters: [Character] = []
 	private var currentIndex = 0
 	
-	init(characters: [Characters]) {
+	init(characters: [Character]) {
 		self.characters = characters
 	}
 	
-	func getCharacters() -> Characters {
+	func getCharacter() -> Character {
 		characters[currentIndex]
 	}
 	
-	func getNextCharacter() -> Characters {
+	func getNextCharacter() -> Character {
 		if currentIndex < characters.count - 1 {
 			currentIndex += 1
 		}
-		return getCharacters()
+		return getCharacter()
+	}
+	
+	func getLastCharacter() -> Character {
+		if currentIndex > 0 {
+			currentIndex -= 1
+		}
+		return getCharacter()
+	}
+	
+	func getFirstCharacter() -> Character {
+		currentIndex = 0
+		return getCharacter()
 	}
 }

@@ -39,5 +39,6 @@ extension ShadowButton {
 		)
 		layer.cornerRadius = 20
 		backgroundColor = color
+		heightAnchor.constraint(equalToConstant: 50).isActive = true
 	}
 }

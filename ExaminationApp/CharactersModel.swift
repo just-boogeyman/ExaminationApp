@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Characters {
+struct Character {
 	
 	let imageName: String
 	let number: Int

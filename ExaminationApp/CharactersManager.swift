@@ -9,23 +9,23 @@ import UIKit
 
 class CharactersManager {
 	
-	func getCharacters() -> [Characters] {
+	func getCharacters() -> [Character] {
 		return [
-			Characters(
+			Character(
 				imageName: "Character 1",
 				number: 1,
 				name: "Rick Sanchez",
 				status: "Alive",
 				species: "Human"
 			),
-			Characters(
+			Character(
 				imageName: "Character 2",
 				number: 2,
 				name: "Corn detective",
 				status: "Dead",
 				species: "Humanoid"
 			),
-			Characters(
+			Character(
 				imageName: "Character 3",
 				number: 3,
 				name: "Amish Cyborg",
