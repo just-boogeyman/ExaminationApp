@@ -32,12 +32,13 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupView()
-				
 		setupLineView()
-		
 		setupLable()
-		
 		setupStackView()
+	
+		settingStatus(
+			character: characterDataManager.getCharacter()
+		)
 		
 		addActionNext()
 		addActionLast()
@@ -124,11 +125,8 @@ private extension ViewController {
 	}
 	
 	func setupLable() {
-		let character = characterDataManager.getCharacter()
-		nameLable.text = character.name
-		statusLable.text = "\(character.status) - \(character.species)"
-		lableContainerView.addSubview(nameLable)
-		lableContainerView.addSubview(statusLable)
+		[nameLable, statusLable]
+			.forEach{lableContainerView.addSubview($0)}
 	}
 	
 	func setupStackView() {
