@@ -14,16 +14,39 @@ class ViewController: UIViewController {
 	private let imageView = CastomImageView(imageName: "Character 1")
 	private let imageContainerView = ShadowView(color: .white)
 	
-	private let lableContainerView = ShadowView(color: .darkGray, shadow: true)
+	private let lableContainerView = ShadowView(
+		color: .darkGray,
+		shadow: true
+	)
 	private let lineStatusView = UIView()
-	private let statusView = ShadowView(color: .green, cornerRadius: 10,shadow: true)
+	private let statusView = ShadowView(
+		color: .green,
+		cornerRadius: 10,
+		shadow: true
+	)
 	
-	private let nameLable = CastomLable(font: "Arial Rounded MT Bold", size: 20)
-	private let statusLable = CastomLable(font: "Arial Rounded MT Bold", size: 18)
+	private let nameLable = CastomLable(
+		font: "Arial Rounded MT Bold",
+		size: 20
+	)
+	private let statusLable = CastomLable(
+		font: "Arial Rounded MT Bold",
+		size: 18
+	)
 	
-	private let lastButton = ShadowButton(text: "Last", color: .cyan, shadow: true)
-	private let nextButton = ShadowButton(text: "Next", color: .green, shadow: true)
-	private let firstButton = ShadowButton(text: "First", color: .red)
+	private let lastButton = ShadowButton(
+		text: "Last",
+		color: .cyan,
+		shadow: true
+	)
+	private let nextButton = ShadowButton(
+		text: "Next", color: .green,
+		shadow: true
+	)
+	private let firstButton = ShadowButton(
+		text: "First",
+		color: .red
+	)
 	
 	private let characterDataManager = CharacterDataManager(
 		characters: CharactersManager().getCharacters()
