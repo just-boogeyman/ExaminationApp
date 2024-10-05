@@ -24,7 +24,7 @@ class CastomLable: UILabel {
 	
 }
 
-
+// MARK: - SetupLable
 extension CastomLable {
 	private func setupLable(fontName: String, size: CGFloat) {
 		font = UIFont(name: fontName, size: size)

@@ -70,19 +70,59 @@
 			children = (
 				043A18F12CAED34C0079560B /* AppDelegate.swift */,
 				043A18F32CAED34C0079560B /* SceneDelegate.swift */,
-				04A6D5B02CB12ACD005C1F3E /* CastomImageView.swift */,
-				043A18F52CAED34C0079560B /* ViewController.swift */,
-				04A6D5AE2CB12516005C1F3E /* CastomLable.swift */,
-				043A18FA2CAED34E0079560B /* Assets.xcassets */,
-				043A18FC2CAED34E0079560B /* LaunchScreen.storyboard */,
+				04A6D5B22CB14521005C1F3E /* ViewControllers */,
+				04A6D5B32CB14562005C1F3E /* CastomElements */,
+				04A6D5B62CB145C4005C1F3E /* Services */,
+				04A6D5B42CB14582005C1F3E /* Models */,
+				04A6D5B52CB1458A005C1F3E /* Resoursec */,
 				043A18FF2CAED34E0079560B /* Info.plist */,
-				04A6D5A42CAEE0FD005C1F3E /* CharactersModel.swift */,
-				04A6D5A62CAEE523005C1F3E /* CharactersManager.swift */,
-				04A6D5A82CAEE6B1005C1F3E /* CharactersDataManager.swift */,
-				04A6D5AA2CAF65ED005C1F3E /* ShadowBottun.swift */,
-				04A6D5AC2CB10D0B005C1F3E /* ShadowView.swift */,
 			);
 			path = ExaminationApp;
+			sourceTree = "<group>";
+		};
+		04A6D5B22CB14521005C1F3E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				043A18F52CAED34C0079560B /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		04A6D5B32CB14562005C1F3E /* CastomElements */ = {
+			isa = PBXGroup;
+			children = (
+				04A6D5B02CB12ACD005C1F3E /* CastomImageView.swift */,
+				04A6D5AC2CB10D0B005C1F3E /* ShadowView.swift */,
+				04A6D5AA2CAF65ED005C1F3E /* ShadowBottun.swift */,
+				04A6D5AE2CB12516005C1F3E /* CastomLable.swift */,
+			);
+			path = CastomElements;
+			sourceTree = "<group>";
+		};
+		04A6D5B42CB14582005C1F3E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				04A6D5A42CAEE0FD005C1F3E /* CharactersModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		04A6D5B52CB1458A005C1F3E /* Resoursec */ = {
+			isa = PBXGroup;
+			children = (
+				043A18FA2CAED34E0079560B /* Assets.xcassets */,
+				043A18FC2CAED34E0079560B /* LaunchScreen.storyboard */,
+			);
+			path = Resoursec;
+			sourceTree = "<group>";
+		};
+		04A6D5B62CB145C4005C1F3E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				04A6D5A62CAEE523005C1F3E /* CharactersManager.swift */,
+				04A6D5A82CAEE6B1005C1F3E /* CharactersDataManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

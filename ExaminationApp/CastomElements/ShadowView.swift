@@ -30,7 +30,7 @@ class ShadowView: UIView {
 	}
 }
 
-
+// MARK: - SetupView
 extension ShadowView {
 	private func setupView(color: UIColor, cornerRadius: CGFloat, shadow: Bool) {
 		backgroundColor = color
@@ -44,10 +44,9 @@ extension ShadowView {
 	}
 }
 
-
+// MARK: - Constants
 private extension ShadowView {
 	enum Constants {
-//		static let radius: CGFloat = 20
 		static let shadowOpacity: Float = 0.5
 		static let shadowOffset = CGSize(width: 5.0, height: 5.0)
 	}

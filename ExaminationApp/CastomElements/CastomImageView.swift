@@ -24,6 +24,7 @@ class CastomImageView: UIImageView {
 	}
 }
 
+// MARK: - Setup View
 extension CastomImageView {
 	private func setupImageView(imageName: String) {
 		image = UIImage(named: imageName)
