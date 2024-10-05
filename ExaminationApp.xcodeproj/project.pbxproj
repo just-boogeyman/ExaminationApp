@@ -16,6 +16,9 @@
 		04A6D5A72CAEE523005C1F3E /* CharactersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6D5A62CAEE523005C1F3E /* CharactersManager.swift */; };
 		04A6D5A92CAEE6B1005C1F3E /* CharactersDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6D5A82CAEE6B1005C1F3E /* CharactersDataManager.swift */; };
 		04A6D5AB2CAF65ED005C1F3E /* ShadowBottun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6D5AA2CAF65ED005C1F3E /* ShadowBottun.swift */; };
+		04A6D5AD2CB10D0B005C1F3E /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6D5AC2CB10D0B005C1F3E /* ShadowView.swift */; };
+		04A6D5AF2CB12516005C1F3E /* CastomLable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6D5AE2CB12516005C1F3E /* CastomLable.swift */; };
+		04A6D5B12CB12ACD005C1F3E /* CastomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6D5B02CB12ACD005C1F3E /* CastomImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		04A6D5A62CAEE523005C1F3E /* CharactersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersManager.swift; sourceTree = "<group>"; };
 		04A6D5A82CAEE6B1005C1F3E /* CharactersDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersDataManager.swift; sourceTree = "<group>"; };
 		04A6D5AA2CAF65ED005C1F3E /* ShadowBottun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowBottun.swift; sourceTree = "<group>"; };
+		04A6D5AC2CB10D0B005C1F3E /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		04A6D5AE2CB12516005C1F3E /* CastomLable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastomLable.swift; sourceTree = "<group>"; };
+		04A6D5B02CB12ACD005C1F3E /* CastomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastomImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +70,9 @@
 			children = (
 				043A18F12CAED34C0079560B /* AppDelegate.swift */,
 				043A18F32CAED34C0079560B /* SceneDelegate.swift */,
+				04A6D5B02CB12ACD005C1F3E /* CastomImageView.swift */,
 				043A18F52CAED34C0079560B /* ViewController.swift */,
+				04A6D5AE2CB12516005C1F3E /* CastomLable.swift */,
 				043A18FA2CAED34E0079560B /* Assets.xcassets */,
 				043A18FC2CAED34E0079560B /* LaunchScreen.storyboard */,
 				043A18FF2CAED34E0079560B /* Info.plist */,
@@ -72,6 +80,7 @@
 				04A6D5A62CAEE523005C1F3E /* CharactersManager.swift */,
 				04A6D5A82CAEE6B1005C1F3E /* CharactersDataManager.swift */,
 				04A6D5AA2CAF65ED005C1F3E /* ShadowBottun.swift */,
+				04A6D5AC2CB10D0B005C1F3E /* ShadowView.swift */,
 			);
 			path = ExaminationApp;
 			sourceTree = "<group>";
@@ -150,6 +159,9 @@
 				043A18F22CAED34C0079560B /* AppDelegate.swift in Sources */,
 				04A6D5AB2CAF65ED005C1F3E /* ShadowBottun.swift in Sources */,
 				04A6D5A72CAEE523005C1F3E /* CharactersManager.swift in Sources */,
+				04A6D5AD2CB10D0B005C1F3E /* ShadowView.swift in Sources */,
+				04A6D5AF2CB12516005C1F3E /* CastomLable.swift in Sources */,
+				04A6D5B12CB12ACD005C1F3E /* CastomImageView.swift in Sources */,
 				04A6D5A92CAEE6B1005C1F3E /* CharactersDataManager.swift in Sources */,
 				043A18F42CAED34C0079560B /* SceneDelegate.swift in Sources */,
 				04A6D5A52CAEE0FD005C1F3E /* CharactersModel.swift in Sources */,

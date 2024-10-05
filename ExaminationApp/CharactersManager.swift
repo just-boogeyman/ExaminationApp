@@ -31,6 +31,34 @@ class CharactersManager {
 				name: "Amish Cyborg",
 				status: "Dead",
 				species: "Alien"
+			),
+			Character(
+				imageName: "Character 4",
+				number: 4,
+				name: "Snake Reporter",
+				status: "Alive",
+				species: "Animal"
+			),
+			Character(
+				imageName: "Character 5",
+				number: 5,
+				name: "Phone-person",
+				status: "Alive",
+				species: "Humanoid"
+			),
+			Character(
+				imageName: "Character 6",
+				number: 6,
+				name: "Alien Rick",
+				status: "Unknown",
+				species: "Alien"
+			),
+			Character(
+				imageName: "Character 7",
+				number: 7,
+				name: "Crystal Poacher",
+				status: "Dead",
+				species: "Alien"
 			)
 		]
 	}
