@@ -12,6 +12,12 @@ struct Character {
 	let imageName: String
 	let number: Int
 	let name: String
-	let status: String
+	let status: CharacterStatus
 	let species: String
+}
+
+enum CharacterStatus {
+	case alive
+	case dead
+	case none
 }

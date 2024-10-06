@@ -89,22 +89,20 @@ class ViewController: UIViewController {
 		statusLable.text = "\(character.status) - \(character.species)"
 		
 		switch character.status {
-		case Constants.alive:
-			imageView.layer.borderColor = UIColor.green.cgColor
-			lineStatusView.backgroundColor = .green
-			statusView.backgroundColor = .green
-			lableContainerView.layer.shadowColor = UIColor.green.cgColor
-		case Constants.dead:
-			imageView.layer.borderColor = UIColor.red.cgColor
-			lineStatusView.backgroundColor = .red
-			statusView.backgroundColor = .red
-			lableContainerView.layer.shadowColor = UIColor.red.cgColor
+		case .alive:
+			setupStatusStyle(color: .green)
+		case .dead:
+			setupStatusStyle(color: .red)
 		default:
-			imageView.layer.borderColor = UIColor.white.cgColor
-			lineStatusView.backgroundColor = .white
-			statusView.backgroundColor = .white
-			lableContainerView.layer.shadowColor = UIColor.white.cgColor
+			setupStatusStyle(color: .white)
 		}
+	}
+	
+	private func setupStatusStyle(color: UIColor) {
+		imageView.layer.borderColor = color.cgColor
+		lineStatusView.backgroundColor = color
+		statusView.backgroundColor = color
+		lableContainerView.layer.shadowColor = color.cgColor
 	}
 }
 
@@ -248,7 +246,5 @@ private extension ViewController {
 		static let sizeNameLable: CGFloat = 20
 		static let sizeStatusLable: CGFloat = 20
 		static let imageName = "Character 1"
-		static let dead = "Dead"
-		static let alive = "Alive"
 	}
 }
