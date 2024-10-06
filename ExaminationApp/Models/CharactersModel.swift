@@ -19,5 +19,5 @@ struct Character {
 enum CharacterStatus {
 	case alive
 	case dead
-	case none
+	case unknown
 }

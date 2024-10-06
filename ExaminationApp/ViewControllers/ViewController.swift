@@ -102,6 +102,7 @@ class ViewController: UIViewController {
 		imageView.layer.borderColor = color.cgColor
 		lineStatusView.backgroundColor = color
 		statusView.backgroundColor = color
+		statusView.layer.shadowColor = color.cgColor
 		lableContainerView.layer.shadowColor = color.cgColor
 	}
 }

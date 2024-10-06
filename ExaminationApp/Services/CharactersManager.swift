@@ -50,7 +50,7 @@ class CharactersManager {
 				imageName: "Character 6",
 				number: 6,
 				name: "Alien Rick",
-				status: .none,
+				status: .unknown,
 				species: "Alien"
 			),
 			Character(
