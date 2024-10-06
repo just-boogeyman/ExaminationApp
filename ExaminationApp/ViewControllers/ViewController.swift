@@ -11,8 +11,12 @@ class ViewController: UIViewController {
 	
 	private let stackView = UIStackView()
 	
-	private let imageView = CastomImageView(imageName: "Character 1")
-	private let imageContainerView = ShadowView(color: .white)
+	private let imageView = CastomImageView(
+		imageName: Constants.imageName
+	)
+	private let imageContainerView = ShadowView(
+		color: .white
+	)
 	
 	private let lableContainerView = ShadowView(
 		color: .darkGray,
@@ -26,12 +30,12 @@ class ViewController: UIViewController {
 	)
 	
 	private let nameLable = CastomLable(
-		font: "Arial Rounded MT Bold",
-		size: 20
+		font: Constants.fontLable,
+		size: Constants.sizeNameLable
 	)
 	private let statusLable = CastomLable(
-		font: "Arial Rounded MT Bold",
-		size: 18
+		font: Constants.fontLable,
+		size: Constants.sizeStatusLable
 	)
 	
 	private let lastButton = ShadowButton(
@@ -85,12 +89,12 @@ class ViewController: UIViewController {
 		statusLable.text = "\(character.status) - \(character.species)"
 		
 		switch character.status {
-		case "Alive":
+		case Constants.alive:
 			imageView.layer.borderColor = UIColor.green.cgColor
 			lineStatusView.backgroundColor = .green
 			statusView.backgroundColor = .green
 			lableContainerView.layer.shadowColor = UIColor.green.cgColor
-		case "Dead":
+		case Constants.dead:
 			imageView.layer.borderColor = UIColor.red.cgColor
 			lineStatusView.backgroundColor = .red
 			statusView.backgroundColor = .red
@@ -234,5 +238,17 @@ private extension ViewController {
 			firstButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 80),
 			firstButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
 		])
+	}
+}
+
+// MARK: - Constants
+private extension ViewController {
+	enum Constants {
+		static let fontLable = "Arial Rounded MT Bold"
+		static let sizeNameLable: CGFloat = 20
+		static let sizeStatusLable: CGFloat = 20
+		static let imageName = "Character 1"
+		static let dead = "Dead"
+		static let alive = "Alive"
 	}
 }
