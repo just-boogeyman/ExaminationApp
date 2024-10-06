@@ -7,7 +7,14 @@
 
 import UIKit
 
-class CharacterDataManager {
+protocol ICharacterDataManager {
+	func getCharacter() -> Character
+	func getNextCharacter() -> Character
+	func getLastCharacter() -> Character
+	func getFirstCharacter() -> Character
+}
+
+class CharacterDataManager: ICharacterDataManager {
 	
 	private var characters: [Character] = []
 	private var currentIndex = 0

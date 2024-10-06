@@ -9,7 +9,7 @@ import UIKit
 
 class CharactersManager {
 	
-	func getCharacters() -> [Character] {
+	static func getCharacters() -> [Character] {
 		 [
 			Character(
 				imageName: "Character 1",

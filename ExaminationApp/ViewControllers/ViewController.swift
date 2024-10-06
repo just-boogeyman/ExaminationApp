@@ -52,9 +52,7 @@ class ViewController: UIViewController {
 		color: .red
 	)
 	
-	private let characterDataManager = CharacterDataManager(
-		characters: CharactersManager().getCharacters()
-	)
+	var characterDataManager: ICharacterDataManager?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -62,9 +60,9 @@ class ViewController: UIViewController {
 		setupLineView()
 		setupLable()
 		setupStackView()
-	
+		
 		settingStatus(
-			character: characterDataManager.getCharacter()
+			character: characterDataManager?.getCharacter()
 		)
 		
 		addActionNext()
@@ -81,7 +79,8 @@ class ViewController: UIViewController {
 		setupLayoutfirstButton()
 	}
 	
-	private func settingStatus(character: Character) {
+	private func settingStatus(character: Character?) {
+		guard let character = character else { return } // не знаю как надо было захардкорить через ??, или гуард всетаки извлек через гуард) как в guard let windowScene
 		imageView.image = UIImage(
 			named: character.imageName
 		)
@@ -112,7 +111,7 @@ private extension ViewController {
 	func addActionNext() {
 		let action = UIAction { _ in
 			self.settingStatus(
-				character: self.characterDataManager.getNextCharacter()
+				character: self.characterDataManager?.getNextCharacter()
 			)
 		}
 		nextButton.addAction(action, for: .touchUpInside)
@@ -121,7 +120,7 @@ private extension ViewController {
 	func addActionLast() {
 		let action = UIAction { _ in
 			self.settingStatus(
-				character: self.characterDataManager.getLastCharacter()
+				character: self.characterDataManager?.getLastCharacter()
 			)
 		}
 		lastButton.addAction(action, for: .touchUpInside)
@@ -130,7 +129,7 @@ private extension ViewController {
 	func addAcrionFirst() {
 		let action = UIAction { _ in
 			self.settingStatus(
-				character: self.characterDataManager.getFirstCharacter()
+				character: self.characterDataManager?.getFirstCharacter()
 			)
 		}
 		firstButton.addAction(action, for: .touchUpInside)
