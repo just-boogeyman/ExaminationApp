@@ -7,6 +7,12 @@
 
 import Foundation
 
+enum CharacterStatus {
+	case alive
+	case dead
+	case unknown
+}
+
 struct Character {
 	
 	let imageName: String
@@ -16,8 +22,9 @@ struct Character {
 	let species: String
 }
 
-enum CharacterStatus {
-	case alive
-	case dead
-	case unknown
+// MARK: - CustomStringConvertible
+extension Character: CustomStringConvertible {
+	var description: String {
+		"Название картинки: \(imageName), описание: \(name)"
+	}
 }

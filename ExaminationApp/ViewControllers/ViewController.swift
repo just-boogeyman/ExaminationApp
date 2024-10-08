@@ -80,7 +80,7 @@ class ViewController: UIViewController {
 	}
 	
 	private func settingStatus(character: Character?) {
-		guard let character = character else { return } // не знаю как надо было захардкорить через ??, или гуард всетаки извлек через гуард) как в guard let windowScene
+		guard let character = character else { return }
 		imageView.image = UIImage(
 			named: character.imageName
 		)

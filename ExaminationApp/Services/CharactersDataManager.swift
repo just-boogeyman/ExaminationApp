@@ -14,7 +14,7 @@ protocol ICharacterDataManager {
 	func getFirstCharacter() -> Character
 }
 
-class CharacterDataManager: ICharacterDataManager {
+class CharacterDataManager {
 	
 	private var characters: [Character] = []
 	private var currentIndex = 0
@@ -22,7 +22,10 @@ class CharacterDataManager: ICharacterDataManager {
 	init(characters: [Character]) {
 		self.characters = characters
 	}
-	
+}
+
+// MARK: - ICharacterDataManager
+extension CharacterDataManager: ICharacterDataManager {
 	func getCharacter() -> Character {
 		characters[currentIndex]
 	}
