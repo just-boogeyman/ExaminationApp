@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 	
-	private let stackView = UIStackView()
+	private let stackView = CastomStackView()
 	
 	private let imageView = CastomImageView(
 		imageName: Constants.imageName
@@ -57,10 +57,7 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupView()
-		setupLineView()
-		setupLable()
-		setupStackView()
-		
+		addSubviews()
 		settingStatus(
 			character: characterDataManager?.getCharacter()
 		)
@@ -106,7 +103,7 @@ class ViewController: UIViewController {
 	}
 }
 
-// MARK: - SetupView
+// MARK: - AddActions
 private extension ViewController {
 	func addActionNext() {
 		let action = UIAction { _ in
@@ -134,33 +131,23 @@ private extension ViewController {
 		}
 		firstButton.addAction(action, for: .touchUpInside)
 	}
-	
+}
+
+// MARK: - SetupView
+private extension ViewController {
 	func setupView() {
 		view.backgroundColor = .lightGray
-		
-		[imageContainerView, lineStatusView, lableContainerView, stackView, firstButton]
-			.forEach{view.addSubview($0)}
-		
+	}
+	
+	func addSubviews() {
+		view.addSubviews(
+			imageContainerView, lineStatusView,
+			lableContainerView, stackView, firstButton
+		)
 		imageContainerView.addSubview(imageView)
 		lableContainerView.addSubview(statusView)
-	}
-	
-	func setupLineView() {
-		lineStatusView.backgroundColor = .green
-	}
-	
-	func setupLable() {
-		[nameLable, statusLable]
-			.forEach{lableContainerView.addSubview($0)}
-	}
-	
-	func setupStackView() {
-		stackView.axis = .horizontal
-		stackView.alignment = .fill
-		stackView.distribution = .equalSpacing
-		
-		[lastButton, nextButton]
-			.forEach{stackView.addArrangedSubview($0)}
+		lableContainerView.addSubviews(nameLable, statusLable)
+		stackView.addArrangedSubviews(lastButton, nextButton)
 	}
 }
 
