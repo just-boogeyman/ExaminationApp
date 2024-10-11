@@ -28,9 +28,3 @@ private extension CastomStackView {
 		distribution = .equalSpacing
 	}
 }
-
-//extension CastomStackView {
-//	func addArrangedSubviews(views: UIView...) {
-//		views.forEach{addArrangedSubview($0)}
-//	}
-//}

@@ -7,8 +7,13 @@
 
 import UIKit
 
+@objc protocol ICustomButtonDelegate {
+	func pressedButton(_ button: UIButton)
+}
 
 class ShadowButton: UIButton {
+	
+	var delegate: ICustomButtonDelegate?
 	
 	init(text: String, color: UIColor, shadow: Bool = false) {
 		super.init(frame: .zero)
@@ -17,6 +22,7 @@ class ShadowButton: UIButton {
 			color: color,
 			shadow: shadow
 		)
+		addAction()
 	}
 	
 	@available(*, unavailable)
@@ -33,7 +39,7 @@ class ShadowButton: UIButton {
 
 
 // MARK: - SetupButton
-extension ShadowButton {
+private extension ShadowButton {
 	func setupButton(text: String, color: UIColor, shadow: Bool) {
 		setTitle(
 			text,
@@ -49,5 +55,12 @@ extension ShadowButton {
 			layer.shadowRadius = 7
 			layer.shadowOpacity = 0.7
 		}
+	}
+	
+	func addAction() {
+		let action = UIAction { _ in
+			self.delegate?.pressedButton(self)
+		}
+		addAction(action, for: .touchUpInside)
 	}
 }

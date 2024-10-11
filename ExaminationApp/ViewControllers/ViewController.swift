@@ -56,16 +56,12 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		addDelegate()
 		setupView()
 		addSubviews()
 		settingStatus(
 			character: characterDataManager?.getCharacter()
 		)
-		
-		addActionNext()
-		addActionLast()
-		addAcrionFirst()
-		
 		setupLoyaut()
 	}
 	
@@ -103,40 +99,16 @@ class ViewController: UIViewController {
 	}
 }
 
-// MARK: - AddActions
-private extension ViewController {
-	func addActionNext() {
-		let action = UIAction { _ in
-			self.settingStatus(
-				character: self.characterDataManager?.getNextCharacter()
-			)
-		}
-		nextButton.addAction(action, for: .touchUpInside)
-	}
-	
-	func addActionLast() {
-		let action = UIAction { _ in
-			self.settingStatus(
-				character: self.characterDataManager?.getLastCharacter()
-			)
-		}
-		lastButton.addAction(action, for: .touchUpInside)
-	}
-	
-	func addAcrionFirst() {
-		let action = UIAction { _ in
-			self.settingStatus(
-				character: self.characterDataManager?.getFirstCharacter()
-			)
-		}
-		firstButton.addAction(action, for: .touchUpInside)
-	}
-}
 
 // MARK: - SetupView
 private extension ViewController {
 	func setupView() {
 		view.backgroundColor = .lightGray
+	}
+	
+	func addDelegate() {
+		[nextButton, firstButton, lastButton]
+			.forEach{$0.delegate = self}
 	}
 	
 	func addSubviews() {
@@ -223,6 +195,28 @@ private extension ViewController {
 			firstButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 80),
 			firstButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
 		])
+	}
+}
+
+//MARK: - ICustomButtonDelegate
+extension ViewController: ICustomButtonDelegate {
+	func pressedButton(_ button: UIButton) {
+		switch button {
+		case nextButton:
+			settingStatus(
+				character: characterDataManager?.getNextCharacter()
+			)
+		case firstButton:
+			settingStatus(
+				character: characterDataManager?.getFirstCharacter()
+			)
+		case lastButton:
+			settingStatus(
+				character: characterDataManager?.getLastCharacter()
+			)
+		default:
+			break
+		}
 	}
 }
 
