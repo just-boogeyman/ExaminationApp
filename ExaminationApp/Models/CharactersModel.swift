@@ -28,3 +28,10 @@ extension Character: CustomStringConvertible {
 		"Название картинки: \(imageName), описание: \(name)"
 	}
 }
+
+// MARK: - Comparable
+extension Character: Comparable {
+	static func < (lhs: Character, rhs: Character) -> Bool {
+		lhs.imageName < rhs.imageName
+	}
+}

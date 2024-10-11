@@ -17,9 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		guard let windowScene = scene as? UIWindowScene else { return }
 		window = UIWindow(windowScene: windowScene)
 		
-		let characters = CharactersManager.getCharacters().sorted{
-			$0.imageName < $1.imageName
-		}
+		let characters = CharactersManager.getCharacters().sorted(by: <)
 		getDescription(characters: characters)
 
 		let charactersDataManager = CharacterDataManager(
@@ -30,21 +28,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		
 		window?.rootViewController = viewController
 		window?.makeKeyAndVisible()
-	}
-
-	func sceneDidDisconnect(_ scene: UIScene) {
-	}
-
-	func sceneDidBecomeActive(_ scene: UIScene) {
-	}
-
-	func sceneWillResignActive(_ scene: UIScene) {
-	}
-
-	func sceneWillEnterForeground(_ scene: UIScene) {
-	}
-
-	func sceneDidEnterBackground(_ scene: UIScene) {
 	}
 }
 
