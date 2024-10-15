@@ -8,6 +8,8 @@
 import UIKit
 
 class CastomImageView: UIImageView {
+	
+	var nameInstance: String?
 
 	init(imageName: String) {
 		super.init(frame: .zero)

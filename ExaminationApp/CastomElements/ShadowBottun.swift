@@ -13,6 +13,7 @@ import UIKit
 
 class ShadowButton: UIButton {
 	
+	var nameInstance: String?
 	var delegate: ICustomButtonDelegate?
 	
 	init(text: String, color: UIColor, shadow: Bool = false) {

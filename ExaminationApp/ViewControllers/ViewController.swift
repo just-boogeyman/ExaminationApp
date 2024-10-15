@@ -57,6 +57,24 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		addDelegate()
+		
+		
+		// Не стал делать функции отдельной пусть тут пока лежит потом все равно же удалять
+		stackView.nameInstance = "CastomStackView"
+		imageView.nameInstance = "CastomImageView"
+		lableContainerView.nameInstance = "ShadowView"
+		statusView.nameInstance = "ShadowView"
+		lastButton.nameInstance = "ShadowButton"
+		
+		// нужен принт или нет)
+		print(view.getCountUIButtons(
+			stackView, imageView, lableContainerView, stackView, lastButton
+		)
+		)
+		view.printAllSubviews(
+			stackView, imageView, lableContainerView, stackView, lastButton
+		)
+		
 		setupView()
 		addSubviews()
 		settingStatus(

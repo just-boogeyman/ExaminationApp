@@ -9,6 +9,8 @@ import UIKit
 
 class CastomStackView: UIStackView {
 	
+	var nameInstance: String?
+	
 	init() {
 		super.init(frame: .zero)
 		setupStack()

@@ -9,6 +9,8 @@ import UIKit
 
 class CastomLable: UILabel {
 	
+	var nameInstance: String?
+	
 	init(font: String, size: CGFloat) {
 		super.init(frame: .zero)
 		setupLable(fontName: font, size: size)

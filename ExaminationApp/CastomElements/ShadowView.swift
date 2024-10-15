@@ -9,6 +9,8 @@ import UIKit
 
 class ShadowView: UIView {
 	
+	var nameInstance: String?
+	
 	init(color: UIColor, cornerRadius: CGFloat = 20 ,shadow: Bool = false) {
 		super.init(frame: .zero)
 		setupView(color: color, cornerRadius: cornerRadius,shadow: shadow)
