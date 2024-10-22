@@ -20,11 +20,16 @@ class CastomImageView: UIImageView {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+	
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		super.touchesBegan(touches, with: event)
+	}
 }
 
 // MARK: - Setup View
 extension CastomImageView {
 	private func setupImageView(imageName: String) {
+		isUserInteractionEnabled = true
 		image = UIImage(named: imageName)
 		layer.cornerRadius = 20
 		clipsToBounds = true

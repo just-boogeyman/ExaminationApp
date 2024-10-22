@@ -38,6 +38,11 @@ class ViewController: UIViewController {
 		size: Constants.sizeStatusLable
 	)
 	
+	private let infoImageLable = CastomLable(
+		font: Constants.fontLable,
+		size: Constants.sizeStatusLable
+	)
+	
 	private let lastButton = ShadowButton(
 		text: "Last",
 		color: .cyan,
@@ -83,6 +88,17 @@ class ViewController: UIViewController {
 		setupLoyaut()
 	}
 	
+	// Я понимаю что это работает когда происходит нажатие
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		if infoImageLable.isHidden {
+			infoImageLable.isHidden = false
+		}
+		let nameImage = characterDataManager?.getCharacter().imageName
+		infoImageLable.text = nameImage
+//		next?.touchesBegan(touches, with: event) // мне кажется что мы как то через некст должны прокинуть имя картинки ну это не точно))
+//		super.touchesBegan(touches, with: event) //мы же пишем это чтобы тут останавливалось, где прочитать про super я уже запутался
+	}
+	
 	private func setupLoyaut() {
 		setupLayoutImageView()
 		setupLayoutInfoContainer()
@@ -91,6 +107,9 @@ class ViewController: UIViewController {
 	}
 	
 	private func settingStatus(character: Character?) {
+		if !infoImageLable.isHidden {
+			infoImageLable.isHidden = true
+		}
 		guard let character = character else { return }
 		imageView.image = UIImage(
 			named: character.imageName
@@ -122,6 +141,8 @@ class ViewController: UIViewController {
 private extension ViewController {
 	func setupView() {
 		view.backgroundColor = .lightGray
+		infoImageLable.isHidden = true
+		infoImageLable.text = "veve"
 	}
 	
 	func addDelegate() {
@@ -132,7 +153,7 @@ private extension ViewController {
 	func addSubviews() {
 		view.addSubviews(
 			imageContainerView, lineStatusView,
-			lableContainerView, stackView, firstButton
+			lableContainerView, stackView, firstButton, infoImageLable
 		)
 		imageContainerView.addSubview(imageView)
 		lableContainerView.addSubview(statusView)
@@ -208,10 +229,13 @@ private extension ViewController {
 	
 	func setupLayoutfirstButton() {
 		firstButton.translatesAutoresizingMaskIntoConstraints = false
+		infoImageLable.translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint.activate([
 			firstButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 80),
-			firstButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+			firstButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			infoImageLable.topAnchor.constraint(equalTo: firstButton.bottomAnchor, constant: 20),
+			infoImageLable.centerXAnchor.constraint(equalTo: view.centerXAnchor)
 		])
 	}
 }
