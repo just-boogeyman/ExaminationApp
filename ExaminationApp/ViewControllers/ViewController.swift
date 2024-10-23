@@ -62,24 +62,6 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		addDelegate()
-		
-		
-		// Не стал делать функции отдельной пусть тут пока лежит потом все равно же удалять
-		stackView.nameInstance = "CastomStackView"
-		imageView.nameInstance = "CastomImageView"
-		lableContainerView.nameInstance = "ShadowView"
-		statusView.nameInstance = "ShadowView"
-		lastButton.nameInstance = "ShadowButton"
-		
-		// нужен принт или нет)
-		print(view.getCountUIButtons(
-			stackView, imageView, lableContainerView, stackView, lastButton
-		)
-		)
-		view.printAllSubviews(
-			stackView, imageView, lableContainerView, stackView, lastButton
-		)
-		
 		setupView()
 		addSubviews()
 		settingStatus(
@@ -88,7 +70,6 @@ class ViewController: UIViewController {
 		setupLoyaut()
 	}
 	
-	// Я понимаю что это работает когда происходит нажатие
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		super.touchesBegan(touches, with: event)
 		
@@ -101,15 +82,18 @@ class ViewController: UIViewController {
 			infoImageLable.text = nameImage
 		}
 	}
-	
-	private func setupLoyaut() {
+}
+
+// MARK: - Private Methods
+private extension ViewController {
+	func setupLoyaut() {
 		setupLayoutImageView()
 		setupLayoutInfoContainer()
 		setupLayoutStackView()
 		setupLayoutfirstButton()
 	}
 	
-	private func settingStatus(character: Character?) {
+	func settingStatus(character: Character?) {
 		if !infoImageLable.isHidden {
 			infoImageLable.isHidden = true
 		}
@@ -130,7 +114,7 @@ class ViewController: UIViewController {
 		}
 	}
 	
-	private func setupStatusStyle(color: UIColor) {
+	func setupStatusStyle(color: UIColor) {
 		imageView.layer.borderColor = color.cgColor
 		lineStatusView.backgroundColor = color
 		statusView.backgroundColor = color
@@ -138,7 +122,6 @@ class ViewController: UIViewController {
 		lableContainerView.layer.shadowColor = color.cgColor
 	}
 }
-
 
 // MARK: - SetupView
 private extension ViewController {

@@ -23,8 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		let charactersDataManager = CharacterDataManager(
 			characters: characters
 		)
-		let viewController = ViewController()
-		viewController.characterDataManager = charactersDataManager
+		let viewController = FindImageViewController()
+		viewController.characterManager = charactersDataManager
 		
 		window?.rootViewController = viewController
 		window?.makeKeyAndVisible()

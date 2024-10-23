@@ -12,6 +12,7 @@ protocol ICharacterDataManager {
 	func getNextCharacter() -> Character
 	func getLastCharacter() -> Character
 	func getFirstCharacter() -> Character
+	func getSearchCharacter(image: String) -> Character?
 }
 
 class CharacterDataManager {
@@ -28,6 +29,15 @@ class CharacterDataManager {
 extension CharacterDataManager: ICharacterDataManager {
 	func getCharacter() -> Character {
 		characters[currentIndex]
+	}
+	
+	func getSearchCharacter(image: String) -> Character? {
+		for character in characters {
+			if character.imageName == image {
+				return character
+			}
+		}
+		return nil
 	}
 	
 	func getNextCharacter() -> Character {
