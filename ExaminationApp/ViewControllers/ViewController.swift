@@ -90,13 +90,16 @@ class ViewController: UIViewController {
 	
 	// Я понимаю что это работает когда происходит нажатие
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-		if infoImageLable.isHidden {
+		super.touchesBegan(touches, with: event)
+		
+		guard let touch = touches.first else { return }
+		let touchLocation = touch.location(in: imageView)
+		
+		if imageView.bounds.contains(touchLocation) {
 			infoImageLable.isHidden = false
+			let nameImage = characterDataManager?.getCharacter().imageName
+			infoImageLable.text = nameImage
 		}
-		let nameImage = characterDataManager?.getCharacter().imageName
-		infoImageLable.text = nameImage
-//		next?.touchesBegan(touches, with: event) // мне кажется что мы как то через некст должны прокинуть имя картинки ну это не точно))
-//		super.touchesBegan(touches, with: event) //мы же пишем это чтобы тут останавливалось, где прочитать про super я уже запутался
 	}
 	
 	private func setupLoyaut() {
