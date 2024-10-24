@@ -30,12 +30,13 @@ class FindImageViewController: UIViewController {
 	
 	private let checkButton = ShadowButton(
 		text: "Проверить",
-		color: .cyan
+		color: .cyan,
+		shadow: true
 	)
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		castomTF.delegate = self
+		onDelegate()
 		setupView()
 		addSubviews()
 		setupLoyaut()
@@ -44,6 +45,7 @@ class FindImageViewController: UIViewController {
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		guard let imageSearch = castomTF.text else { return }
 		settingView(imageSearch)
+		getShadowTFOff()
 		super.touchesBegan(touches, with: event)
 	}
 }
@@ -52,22 +54,44 @@ class FindImageViewController: UIViewController {
 private extension FindImageViewController {
 	func settingView(_ imageSearch: String) {
 		guard let character = characterManager?.getSearchCharacter(image: imageSearch) as? Character else {
-			imageView.isHidden = true
-			infoLable.isHidden = true
+			isHiddenView(true)
 			presencePictureLable.text = "Введите название картинки"
 			castomTF.text = ""
-			view.endEditing(true)
+			castomTF.resignFirstResponder()
 			return
 		}
 		
-		imageView.isHidden = false
-		infoLable.isHidden = false
+		isHiddenView(false)
 		
 		imageView.image = UIImage(named: character.imageName)
 		infoLable.text = character.name
 		presencePictureLable.text = "Такая картинка есть"
 		castomTF.text = ""
-		view.endEditing(true)
+		castomTF.resignFirstResponder()
+	}
+	
+	func onDelegate() {
+		castomTF.delegate = self
+		checkButton.delegate = self
+	}
+	
+	func isHiddenView(_ onOff: Bool) {
+		imageView.isHidden = onOff
+		infoLable.isHidden = onOff
+	}
+	
+	func getShadowTFOn() {
+		castomTF.layer.shadowColor = UIColor.cyan.cgColor
+		castomTF.layer.shadowRadius = 20
+		castomTF.layer.shadowOpacity = Constants.shadowOpacity
+		castomTF.layer.shadowOffset = Constants.shadowOffset
+	}
+	
+	func getShadowTFOff() {
+		castomTF.layer.shadowColor = UIColor.systemCyan.cgColor
+		castomTF.layer.shadowRadius = 20
+		castomTF.layer.shadowOpacity = 0.3
+		castomTF.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
 	}
 }
 
@@ -75,15 +99,10 @@ private extension FindImageViewController {
 private extension FindImageViewController {
 	func setupView() {
 		view.backgroundColor = .lightGray
-		
 		presencePictureLable.text = "Введите название картинки"
 		presencePictureLable.textAlignment = .center
-		
 		infoLable.text = "Описание картинки"
-		infoLable.textAlignment = .center
-
-		imageView.isHidden = true
-		infoLable.isHidden = true
+		isHiddenView(true)
 	}
 	
 	func addSubviews() {
@@ -95,11 +114,9 @@ private extension FindImageViewController {
 // MARK: - Setup Loyaut
 private extension FindImageViewController {
 	func setupLoyaut() {
-		presencePictureLable.translatesAutoresizingMaskIntoConstraints = false
-		castomTF.translatesAutoresizingMaskIntoConstraints = false
-		checkButton.translatesAutoresizingMaskIntoConstraints = false
-		imageView.translatesAutoresizingMaskIntoConstraints = false
-		infoLable.translatesAutoresizingMaskIntoConstraints = false
+		
+		[presencePictureLable, castomTF, checkButton, imageView, infoLable]
+			.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
 		
 		NSLayoutConstraint.activate([
 			presencePictureLable.topAnchor.constraint(equalTo: view.topAnchor, constant: 75),
@@ -127,12 +144,26 @@ private extension FindImageViewController {
 	}
 }
 
+// MARK: - UITextFieldDelegate
 extension FindImageViewController: UITextFieldDelegate {
-	
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		guard let imageSearch = textField.text else { return true }
 		settingView(imageSearch)
+		getShadowTFOff()
 		return true
+	}
+	
+	func textFieldDidBeginEditing(_ textField: UITextField) {
+		getShadowTFOn()
+	}
+}
+
+// MARK: - ICustomButtonDelegate
+extension FindImageViewController: ICustomButtonDelegate {
+	func pressedButton(_ button: UIButton) {
+		guard let imageSearch = castomTF.text else { return }
+		settingView(imageSearch)
+		getShadowTFOff()
 	}
 }
 
@@ -143,6 +174,8 @@ private extension FindImageViewController {
 		static let fontLable = "Arial Rounded MT Bold"
 		static let sizeNameLable: CGFloat = 20
 		static let sizeStatusLable: CGFloat = 20
-		static let imageName = "Character 1"
+		static let imageName = "1"
+		static let shadowOpacity: Float = 0.5
+		static let shadowOffset = CGSize(width: 5.0, height: 5.0)
 	}
 }

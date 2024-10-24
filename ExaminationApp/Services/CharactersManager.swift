@@ -12,49 +12,49 @@ class CharactersManager {
 	static func getCharacters() -> [Character] {
 		 [
 			Character(
-				imageName: "Character 1",
+				imageName: "1",
 				number: 1,
 				name: "Rick Sanchez",
 				status: .alive,
 				species: "Human"
 			),
 			Character(
-				imageName: "Character 2",
+				imageName: "2",
 				number: 2,
 				name: "Corn detective",
 				status: .dead,
 				species: "Humanoid"
 			),
 			Character(
-				imageName: "Character 3",
+				imageName: "3",
 				number: 3,
 				name: "Amish Cyborg",
 				status: .dead,
 				species: "Alien"
 			),
 			Character(
-				imageName: "Character 4",
+				imageName: "4",
 				number: 4,
 				name: "Snake Reporter",
 				status: .dead,
 				species: "Animal"
 			),
 			Character(
-				imageName: "Character 5",
+				imageName: "5",
 				number: 5,
 				name: "Phone-person",
 				status: .alive,
 				species: "Humanoid"
 			),
 			Character(
-				imageName: "Character 6",
+				imageName: "6",
 				number: 6,
 				name: "Alien Rick",
 				status: .unknown,
 				species: "Alien"
 			),
 			Character(
-				imageName: "Character 7",
+				imageName: "7",
 				number: 7,
 				name: "Crystal Poacher",
 				status: .dead,
