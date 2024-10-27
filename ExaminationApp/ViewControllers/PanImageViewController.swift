@@ -9,19 +9,19 @@ import UIKit
 
 class PanImageViewController: UIViewController {
 	
+	// MARK: - Public Properties
 	var characterManager: CharacterDataManager?
 	
+	// MARK: - Private Properties
 	private var centerYConstraint: NSLayoutConstraint!
 	private var centerXConstraint: NSLayoutConstraint!
+	private var panGestureAnchorPoint: CGPoint?
 	
 	private let imageView = CastomImageView(
-		imageName: "1"
+		imageName: Constants.startImage
 	)
-	
 	private let containerView = ShadowView(color: .cyan)
-	
 	private let panGestureRecognizer = UIPanGestureRecognizer()
-	private var panGestureAnchorPoint: CGPoint?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -64,21 +64,21 @@ class PanImageViewController: UIViewController {
 }
 
 // MARK: - Setup View
-extension PanImageViewController {
-	private func setupImageView() {
+private extension PanImageViewController {
+	func setupImageView() {
 		view.addSubview(containerView)
 		containerView.addSubview(imageView)
 		view.backgroundColor = .lightGray
 	}
 	
-	private func setupGestureRecognizer() {
+	func setupGestureRecognizer() {
 		panGestureRecognizer.addTarget(self, action: #selector(handlePanGesture(_:)))
 		panGestureRecognizer.maximumNumberOfTouches = 1
 		
 		containerView.addGestureRecognizer(panGestureRecognizer)
 	}
 	
-	private func shadowView(_ onOff: Bool) {
+	func shadowView(_ onOff: Bool) {
 		if onOff {
 			containerView.layer.shadowColor = Constants.shadowColorOn
 			containerView.layer.shadowRadius = Constants.cornerRadius
@@ -131,5 +131,6 @@ private extension PanImageViewController {
 		static let cornerRadius: CGFloat = 20
 		static let shadowColorOn = UIColor.cyan.cgColor
 		static let shadowOpacityOff = 0
+		static let startImage = "1"
 	}
 }
