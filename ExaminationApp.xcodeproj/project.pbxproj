@@ -14,6 +14,7 @@
 		043A18FE2CAED34E0079560B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043A18FC2CAED34E0079560B /* LaunchScreen.storyboard */; };
 		04A58A032CC92C9D00D091F8 /* FindImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A58A022CC92C9D00D091F8 /* FindImageViewController.swift */; };
 		04A58A052CC9307B00D091F8 /* CastomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A58A042CC9307B00D091F8 /* CastomTextField.swift */; };
+		04A58A072CCDDB1800D091F8 /* PanImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A58A062CCDDB1800D091F8 /* PanImageViewController.swift */; };
 		04A6D5A52CAEE0FD005C1F3E /* CharactersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6D5A42CAEE0FD005C1F3E /* CharactersModel.swift */; };
 		04A6D5A72CAEE523005C1F3E /* CharactersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6D5A62CAEE523005C1F3E /* CharactersManager.swift */; };
 		04A6D5A92CAEE6B1005C1F3E /* CharactersDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6D5A82CAEE6B1005C1F3E /* CharactersDataManager.swift */; };
@@ -36,6 +37,7 @@
 		043A18FF2CAED34E0079560B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04A58A022CC92C9D00D091F8 /* FindImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindImageViewController.swift; sourceTree = "<group>"; };
 		04A58A042CC9307B00D091F8 /* CastomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastomTextField.swift; sourceTree = "<group>"; };
+		04A58A062CCDDB1800D091F8 /* PanImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanImageViewController.swift; sourceTree = "<group>"; };
 		04A6D5A42CAEE0FD005C1F3E /* CharactersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersModel.swift; sourceTree = "<group>"; };
 		04A6D5A62CAEE523005C1F3E /* CharactersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersManager.swift; sourceTree = "<group>"; };
 		04A6D5A82CAEE6B1005C1F3E /* CharactersDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersDataManager.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				043A18F52CAED34C0079560B /* ViewController.swift */,
 				04A58A022CC92C9D00D091F8 /* FindImageViewController.swift */,
+				04A58A062CCDDB1800D091F8 /* PanImageViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				04A6D5A72CAEE523005C1F3E /* CharactersManager.swift in Sources */,
 				04A6D5AD2CB10D0B005C1F3E /* ShadowView.swift in Sources */,
 				04A6D5AF2CB12516005C1F3E /* CastomLable.swift in Sources */,
+				04A58A072CCDDB1800D091F8 /* PanImageViewController.swift in Sources */,
 				04A6D5B12CB12ACD005C1F3E /* CastomImageView.swift in Sources */,
 				04A58A052CC9307B00D091F8 /* CastomTextField.swift in Sources */,
 				04A6D5A92CAEE6B1005C1F3E /* CharactersDataManager.swift in Sources */,

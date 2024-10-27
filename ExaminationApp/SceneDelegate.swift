@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		let charactersDataManager = CharacterDataManager(
 			characters: characters
 		)
-		let viewController = FindImageViewController()
+		let viewController = PanImageViewController()
 		viewController.characterManager = charactersDataManager
 		
 		window?.rootViewController = viewController

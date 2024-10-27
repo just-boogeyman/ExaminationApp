@@ -13,6 +13,7 @@ protocol ICharacterDataManager {
 	func getLastCharacter() -> Character
 	func getFirstCharacter() -> Character
 	func getSearchCharacter(image: String) -> Character?
+	func getRandomCharacter() -> Character?
 }
 
 class CharacterDataManager {
@@ -27,6 +28,10 @@ class CharacterDataManager {
 
 // MARK: - ICharacterDataManager
 extension CharacterDataManager: ICharacterDataManager {
+	func getRandomCharacter() -> Character? {
+		characters.randomElement()
+	}
+	
 	func getCharacter() -> Character {
 		characters[currentIndex]
 	}
