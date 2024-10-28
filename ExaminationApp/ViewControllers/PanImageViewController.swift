@@ -13,7 +13,7 @@ class PanImageViewController: UIViewController {
 	var characterManager: CharacterDataManager?
 	
 	// MARK: - Private Properties
-	private var centerYConstraint: NSLayoutConstraint!
+	private var topConstraint: NSLayoutConstraint!
 	private var centerXConstraint: NSLayoutConstraint!
 	private var panGestureAnchorPoint: CGPoint?
 	
@@ -47,19 +47,42 @@ class PanImageViewController: UIViewController {
 			let gesturePoint = gestureRecognizer.location(in: view)
 			
 			centerXConstraint.constant += gesturePoint.x - panGestureAnchorPoint.x
-			centerYConstraint.constant += gesturePoint.y - panGestureAnchorPoint.y
+			topConstraint.constant += gesturePoint.y - panGestureAnchorPoint.y
 			self.panGestureAnchorPoint = gesturePoint
 		case .cancelled:
 			panGestureAnchorPoint = nil
 		case .ended:
 			panGestureAnchorPoint = nil
-			containerView.layer.shadowColor = UIColor.green.cgColor
+			settingStatus(
+				character: characterManager?.getRandomCharacter()
+			)
 			shadowView(false)
-			guard let character = characterManager?.getRandomCharacter() else { return }
-			imageView.image = UIImage(named: character.imageName)
 		@unknown default:
 			break
 		}
+	}
+}
+
+
+// MARK: - Private Metods
+private extension PanImageViewController {
+	func settingStatus(character: Character?) {
+		guard let characters = character else { return }
+		imageView.image = UIImage(named: characters.imageName)
+
+		switch characters.status {
+		case .alive:
+			setupColor(color: Constants.colorAlive)
+		case .dead:
+			setupColor(color: Constants.colorDead)
+		case .unknown:
+			setupColor(color: Constants.colorUnknown)
+		}
+	}
+	
+	func setupColor(color: CGColor) {
+		containerView.layer.shadowColor = color
+		imageView.layer.borderColor = color
 	}
 }
 
@@ -80,22 +103,21 @@ private extension PanImageViewController {
 	
 	func shadowView(_ onOff: Bool) {
 		if onOff {
-			containerView.layer.shadowColor = Constants.shadowColorOn
 			containerView.layer.shadowRadius = Constants.cornerRadius
 			containerView.layer.shadowOpacity = Constants.shadowOpacity
 			containerView.layer.shadowOffset = Constants.shadowOffset
 		} else {
-			containerView.layer.shadowOpacity = Constants.shadowOpacity
+			containerView.layer.shadowOpacity = Constants.shadowOpacityOff
 		}
-		
 	}
 }
 
 // MARK: - Setup Layout
 extension PanImageViewController {
 	private func setupLayout() {
-		containerView.translatesAutoresizingMaskIntoConstraints = false
-		imageView.translatesAutoresizingMaskIntoConstraints = false
+		[containerView, imageView]
+			.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+		
 		
 		let widthConstraint = containerView.widthAnchor.constraint(
 			equalToConstant: Constants.initialBoxDimSize
@@ -104,13 +126,13 @@ extension PanImageViewController {
 			equalToConstant: Constants.initialBoxDimSize
 		)
 		
-		centerYConstraint = containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100)
+		topConstraint = containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100)
 		centerXConstraint = containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
 		
 		NSLayoutConstraint.activate([
 			widthConstraint,
 			heightConstraint,
-			centerYConstraint,
+			topConstraint,
 			centerXConstraint,
 			
 			imageView.topAnchor.constraint(equalTo: containerView.topAnchor),
@@ -127,10 +149,12 @@ private extension PanImageViewController {
 		static let boxCornerRadius: CGFloat = 10.0
 		static let initialBoxDimSize: CGFloat = 150.0
 		static let shadowOpacity: Float = 0.5
+		static let shadowOpacityOff: Float = 0
 		static let shadowOffset = CGSize(width: 5.0, height: 5.0)
 		static let cornerRadius: CGFloat = 20
-		static let shadowColorOn = UIColor.cyan.cgColor
-		static let shadowOpacityOff = 0
+		static let colorUnknown = UIColor.cyan.cgColor
+		static let colorAlive = UIColor.green.cgColor
+		static let colorDead = UIColor.red.cgColor
 		static let startImage = "1"
 	}
 }
