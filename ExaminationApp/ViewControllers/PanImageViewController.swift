@@ -25,7 +25,7 @@ class PanImageViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		setupImageView()
+		setupView()
 		setupLayout()
 		setupGestureRecognizer()
 	}
@@ -88,10 +88,11 @@ private extension PanImageViewController {
 
 // MARK: - Setup View
 private extension PanImageViewController {
-	func setupImageView() {
+	func setupView() {
 		view.addSubview(containerView)
 		containerView.addSubview(imageView)
 		view.backgroundColor = .lightGray
+		containerView.layer.shadowColor = UIColor.green.cgColor
 	}
 	
 	func setupGestureRecognizer() {
