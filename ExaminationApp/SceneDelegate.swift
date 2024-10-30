@@ -17,14 +17,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		guard let windowScene = scene as? UIWindowScene else { return }
 		window = UIWindow(windowScene: windowScene)
 		
-		let characters = CharactersManager.getCharacters().sorted(by: <)
-		getDescription(characters: characters)
-
-		let charactersDataManager = CharacterDataManager(
-			characters: characters
-		)
-		let viewController = PanImageViewController()
-		viewController.characterManager = charactersDataManager
+//		let characters = CharactersManager.getCharacters().sorted(by: <)
+//		getDescription(characters: characters)
+//
+//		let charactersDataManager = CharacterDataManager(
+//			characters: characters
+//		)
+		let viewController = LicenseAgreementViewController()
+//		viewController.characterManager = charactersDataManager
 		
 		window?.rootViewController = viewController
 		window?.makeKeyAndVisible()
