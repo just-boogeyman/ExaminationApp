@@ -7,10 +7,8 @@
 
 import UIKit
 
-class TextManager {
-	
-	init() {}
-	
+enum TextManager {
+		
 	static var title = "LICENSED APPLICATION END USER LICENSE AGREEMENT"
 
 	static var text = """

@@ -74,10 +74,10 @@ private extension LicenseAgreementViewController {
 			scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
 			scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
 			
-			contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+			contentView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 24),
 			contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.9),
 			contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-			contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+			contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -24),
 			contentView.heightAnchor.constraint(equalToConstant: 1000),
 			
 			titleLable.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30),
