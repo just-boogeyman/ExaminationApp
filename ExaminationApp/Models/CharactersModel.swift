@@ -20,6 +20,7 @@ struct Character {
 	let name: String
 	let status: CharacterStatus
 	let species: String
+	var isMark: Bool
 }
 
 // MARK: - CustomStringConvertible

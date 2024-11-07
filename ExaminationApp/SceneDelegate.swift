@@ -23,7 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //		let charactersDataManager = CharacterDataManager(
 //			characters: characters
 //		)
-		let viewController = LicenseAgreementViewController()
+		let viewController = ImageListViewController()
+		viewController.characterManager = getCharacters()
 //		viewController.characterManager = charactersDataManager
 		
 		window?.rootViewController = viewController
@@ -35,5 +36,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 private extension SceneDelegate {
 	func getDescription(characters: [Character]) {
 		characters.forEach{print($0)}
+	}
+}
+
+private extension SceneDelegate {
+	func getCharacters() -> ICharacterDataManager {
+		let characterDataManager: ICharactersManager = CharactersManager()
+		let characterManager = CharacterDataManager(characters: characterDataManager.getCharacters())
+		return characterManager
 	}
 }

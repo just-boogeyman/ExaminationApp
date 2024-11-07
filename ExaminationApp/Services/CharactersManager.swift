@@ -7,58 +7,70 @@
 
 import UIKit
 
-class CharactersManager {
-	
-	static func getCharacters() -> [Character] {
+protocol ICharactersManager {
+	func getCharacters() -> [Character]
+}
+
+class CharactersManager {}
+
+extension CharactersManager: ICharactersManager {
+	func getCharacters() -> [Character] {
 		 [
 			Character(
 				imageName: "1",
 				number: 1,
 				name: "Rick Sanchez",
 				status: .alive,
-				species: "Human"
+				species: "Human",
+				isMark: false
 			),
 			Character(
 				imageName: "2",
 				number: 2,
 				name: "Corn detective",
 				status: .dead,
-				species: "Humanoid"
+				species: "Humanoid",
+				isMark: true
 			),
 			Character(
 				imageName: "3",
 				number: 3,
 				name: "Amish Cyborg",
 				status: .dead,
-				species: "Alien"
+				species: "Alien",
+				isMark: false
 			),
 			Character(
 				imageName: "4",
 				number: 4,
 				name: "Snake Reporter",
 				status: .dead,
-				species: "Animal"
+				species: "Animal",
+				isMark: true
 			),
 			Character(
 				imageName: "5",
 				number: 5,
 				name: "Phone-person",
 				status: .alive,
-				species: "Humanoid"
+				species: "Humanoid",
+				isMark: false
 			),
 			Character(
 				imageName: "6",
 				number: 6,
 				name: "Alien Rick",
 				status: .unknown,
-				species: "Alien"
+				species: "Alien",
+				isMark: true
 			),
 			Character(
 				imageName: "7",
 				number: 7,
 				name: "Crystal Poacher",
 				status: .dead,
-				species: "Alien"
+				species: "Alien",
+				isMark: false
 			)
 		]
 	}

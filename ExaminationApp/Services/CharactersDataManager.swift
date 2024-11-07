@@ -14,6 +14,9 @@ protocol ICharacterDataManager {
 	func getFirstCharacter() -> Character
 	func getSearchCharacter(image: String) -> Character?
 	func getRandomCharacter() -> Character?
+	func getAllCharacters() -> [Character]
+	func removeCharacter(index: Int)
+	func chengeIsMark(index: Int)
 }
 
 class CharacterDataManager {
@@ -28,6 +31,18 @@ class CharacterDataManager {
 
 // MARK: - ICharacterDataManager
 extension CharacterDataManager: ICharacterDataManager {
+	func chengeIsMark(index: Int) {
+		characters[index].isMark.toggle()
+	}
+	
+	func removeCharacter(index: Int) {
+		characters.remove(at: index)
+	}
+	
+	func getAllCharacters() -> [Character] {
+		characters
+	}
+	
 	func getRandomCharacter() -> Character? {
 		characters.randomElement()
 	}
