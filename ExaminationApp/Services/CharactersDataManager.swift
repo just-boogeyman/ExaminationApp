@@ -17,6 +17,7 @@ protocol ICharacterDataManager {
 	func getAllCharacters() -> [Character]
 	func removeCharacter(index: Int)
 	func chengeIsMark(index: Int)
+	func getIsMarkCharacter() -> [Character]
 }
 
 class CharacterDataManager {
@@ -31,6 +32,14 @@ class CharacterDataManager {
 
 // MARK: - ICharacterDataManager
 extension CharacterDataManager: ICharacterDataManager {
+	func getIsMarkCharacter() -> [Character] {
+		var isMarkCharacters = [Character]()
+		characters.forEach{
+			if $0.isMark {isMarkCharacters.append($0)}
+		}
+		return isMarkCharacters
+	}
+	
 	func chengeIsMark(index: Int) {
 		characters[index].isMark.toggle()
 	}

@@ -21,8 +21,7 @@ extension CharactersManager: ICharactersManager {
 				number: 1,
 				name: "Rick Sanchez",
 				status: .alive,
-				species: "Human",
-				isMark: false
+				species: "Human"
 			),
 			Character(
 				imageName: "2",
@@ -37,8 +36,7 @@ extension CharactersManager: ICharactersManager {
 				number: 3,
 				name: "Amish Cyborg",
 				status: .dead,
-				species: "Alien",
-				isMark: false
+				species: "Alien"
 			),
 			Character(
 				imageName: "4",
@@ -54,7 +52,7 @@ extension CharactersManager: ICharactersManager {
 				name: "Phone-person",
 				status: .alive,
 				species: "Humanoid",
-				isMark: false
+				isMark: true
 			),
 			Character(
 				imageName: "6",
@@ -69,8 +67,7 @@ extension CharactersManager: ICharactersManager {
 				number: 7,
 				name: "Crystal Poacher",
 				status: .dead,
-				species: "Alien",
-				isMark: false
+				species: "Alien"
 			)
 		]
 	}

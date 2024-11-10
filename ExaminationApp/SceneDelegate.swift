@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //		let charactersDataManager = CharacterDataManager(
 //			characters: characters
 //		)
-		let viewController = ImageListViewController()
+		let viewController = MarkTableViewController()
 		viewController.characterManager = getCharacters()
 //		viewController.characterManager = charactersDataManager
 		

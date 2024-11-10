@@ -32,11 +32,7 @@ extension ImageListViewController: UITableViewDataSource {
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
 		let character = characterManager.getAllCharacters()[indexPath.row]
 		
-		if character.isMark {
-			cell.accessoryType = .checkmark
-		} else {
-			cell.accessoryType = .none
-		}
+		cell.accessoryType = character.isMark ? .checkmark : .none
 		
 		var configuration = cell.defaultContentConfiguration()
 		configuration.image = UIImage(named: character.imageName)
