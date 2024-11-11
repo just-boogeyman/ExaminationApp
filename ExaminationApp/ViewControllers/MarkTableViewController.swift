@@ -14,6 +14,7 @@ class MarkTableViewController: UITableViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		view.backgroundColor = .lightGray
 		tableView.register(CharacterCell.self, forCellReuseIdentifier: cellIdeuntifier)
 	}
 	

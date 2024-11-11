@@ -34,7 +34,7 @@ extension ShadowView {
 		backgroundColor = color
 		layer.cornerRadius = cornerRadius
 		if shadow {
-			layer.shadowColor = UIColor.cyan.cgColor
+			layer.shadowColor = UIColor.purple.cgColor
 			layer.shadowRadius = cornerRadius
 			layer.shadowOpacity = Constants.shadowOpacity
 			layer.shadowOffset = Constants.shadowOffset
