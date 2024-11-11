@@ -20,7 +20,7 @@ struct Character {
 	let name: String
 	let status: CharacterStatus
 	let species: String
-	var isMark = false
+	var isMark = true
 }
 
 // MARK: - CustomStringConvertible
@@ -36,3 +36,5 @@ extension Character: Comparable {
 		lhs.imageName < rhs.imageName
 	}
 }
+
+extension Character: Equatable {}

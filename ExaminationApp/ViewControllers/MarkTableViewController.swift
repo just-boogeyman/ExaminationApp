@@ -14,7 +14,7 @@ class MarkTableViewController: UITableViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		view.backgroundColor = .lightGray
+		tableView.separatorStyle = .none
 		tableView.register(CharacterCell.self, forCellReuseIdentifier: cellIdeuntifier)
 	}
 	
@@ -29,10 +29,22 @@ class MarkTableViewController: UITableViewController {
 		let character = characterManager.getIsMarkCharacter()[indexPath.row]
 		
 		cell.configure(character: character)
+		cell.action = actionButton
+		
 		return cell
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
+	}
+}
+
+extension MarkTableViewController {
+	func actionButton(cell: UITableViewCell) {
+		if let indexPath = tableView.indexPath(for: cell) {
+			let character = characterManager.getIsMarkCharacter()[indexPath.row]
+			characterManager.toggleMark(character)
+			tableView.deleteRows(at: [indexPath], with: .automatic)
+		}
 	}
 }

@@ -10,7 +10,7 @@ import UIKit
 class PanImageViewController: UIViewController {
 	
 	// MARK: - Public Properties
-	var characterManager: CharacterDataManager?
+	var characterManager: ICharacterDataManager?
 	
 	// MARK: - Private Properties
 	private var topConstraint: NSLayoutConstraint!

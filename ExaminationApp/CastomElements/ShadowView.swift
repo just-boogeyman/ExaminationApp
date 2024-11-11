@@ -34,8 +34,8 @@ extension ShadowView {
 		backgroundColor = color
 		layer.cornerRadius = cornerRadius
 		if shadow {
-			layer.shadowColor = UIColor.purple.cgColor
-			layer.shadowRadius = cornerRadius
+			layer.shadowColor = UIColor.darkGray.cgColor
+			layer.shadowRadius = 10
 			layer.shadowOpacity = Constants.shadowOpacity
 			layer.shadowOffset = Constants.shadowOffset
 		}
@@ -45,7 +45,7 @@ extension ShadowView {
 // MARK: - Constants
 private extension ShadowView {
 	enum Constants {
-		static let shadowOpacity: Float = 0.5
+		static let shadowOpacity: Float = 3
 		static let shadowOffset = CGSize(width: 5.0, height: 5.0)
 	}
 }
