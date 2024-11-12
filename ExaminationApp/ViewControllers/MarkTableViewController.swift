@@ -27,7 +27,7 @@ class MarkTableViewController: UITableViewController {
 			withIdentifier: cellIdeuntifier, for: indexPath
 		) as? CharacterCell else { return UITableViewCell() }
 		let character = characterManager.getIsMarkCharacter()[indexPath.row]
-		
+		cell.selectionStyle = .none
 		cell.configure(character: character)
 		cell.action = actionButton
 		

@@ -81,6 +81,7 @@ private extension CharacterCell {
 		 markButton, viewLife].forEach{containerView.addSubview($0)}
 		setupImage()
 		setupNameLabel()
+		setupButton()
 		setupLayout()
 	}
 	
